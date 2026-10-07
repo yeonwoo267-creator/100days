@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우리의 100일</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 첫 번째 화면 -->
+  <div class="door-screen" id="doorScreen">
+
+    <div class="door">
+      🚪
+    </div>
+<div class="door-message" id="doorMessage">
+  <span id="messageText">•••</span>
+</div>
+    <div class="door-message" id="doorMessage">
+  <span id="messageText">•••</span>
+</div>
+
+<div id="peekFace" class="peek-face">
+  🥺
+</div>
+    <div class="name-input" id="nameInput">
+  <input
+    type="text"
+    id="nameField"
+    placeholder="이름을 말해줘"
+  >
+  <button id="nameSubmit">확인</button>
+</div>
+    <div class="buttons">
+      <button id="knockButton">문 두드리기</button>
+      <button id="leaveButton">그냥 나가기</button>
+    </div>
+    
+<button id="openDoorButton" class="open-door-button">문 열기</button>
+  </div>
+  
+<!-- 방 화면 -->
+<div id="roomScreen" class="room-screen">
+
+  <img
+    src="https://i.ibb.co/DPcq1ycG/image.png"
+    alt="우리의 방"
+    class="room-image"
+  >
+
+  <!-- 클릭 영역 -->
+  <button class="room-hotspot letter-hotspot" id="letterButton"></button>
+  <button class="room-hotspot frame-hotspot" id="frameButton"></button>
+  <button class="room-hotspot bed-hotspot" id="bedButton"></button>
+  <button class="room-hotspot laptop-hotspot" id="laptopButton"></button>
+  <button class="room-hotspot speaker-hotspot" id="speakerButton"></button>
+  <audio id="bgm" loop>
+  <source
+    src="https://cdn.jsdelivr.net/gh/yeonwoo267-creator/100days@main/%EB%A6%B4%EB%9F%AC%EB%A7%90%EC%A6%88%20(Leellamarz)%20-%20Trip%20(Feat.%20Hannah)%20%5BTrip%5D%E3%85%A3Lyrics%EA%B0%80%EC%82%AC.mp3"
+    type="audio/mpeg"
+  >
+</audio>
+
+</div>
+  <!-- 침대 클릭 화면 -->
+<div id="bedScreen" class="bed-screen">
+
+  <div class="bed-content">
+    <img
+      src="https://i.ibb.co/svDKy6Z1/image.png"
+      alt="자는 모습"
+      class="sleeping-image"
+    >
+
+    <div class="sleeping-bubble">
+      코...코....
+    </div>
+  </div>
+
+</div>
+
+  <!-- 그냥 나가기를 눌렀을 때 -->
+  <div class="crying-screen" id="cryingScreen">
+
+  <div id="peekFace" class="peek-face">
+  🥺
+</div>
+
+  <div class="speech-bubble">
+    진심이야…?
+  </div>
+
+  <div class="choice-buttons">
+
+    <button>아니</button>
+
+    <button>1</button>
+
+    <button>2</button>
+
+  </div>
+
+</div>
+
+  <!-- 잘못된 이름을 입력했을 때 -->
+<div class="wrong-name-screen" id="wrongNameScreen">
+
+  <img src="https://i.ibb.co/8D8LFFC9/image.png" alt="나가주세요">
+
+  <button id="wrongNameExitButton">나가기</button>
+
+</div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
