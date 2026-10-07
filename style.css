@@ -1,0 +1,366 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: #f5efe5;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: sans-serif;
+}
+
+.door-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px;
+}
+
+.door {
+  width: 180px;
+  height: 300px;
+
+  background: #b98252;
+  border: 8px solid #8d5d39;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 60px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 220px;
+}
+
+button {
+  padding: 14px;
+
+  border: none;
+  border-radius: 15px;
+
+  background: white;
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* 두 번째 화면 */
+
+.crying-screen {
+  display: none;
+
+  width: 100%;
+  height: 100vh;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 25px;
+
+  background: #f5efe5;
+}
+
+.photo-placeholder {
+  width: 220px;
+  height: 280px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #eee;
+
+  border-radius: 20px;
+
+  font-size: 80px;
+}
+
+.speech-bubble {
+  position: relative;
+
+  background: white;
+
+  padding: 16px 25px;
+
+  border-radius: 20px;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.speech-bubble::after {
+  content: "";
+
+  position: absolute;
+
+  top: -10px;
+  left: 35px;
+
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+}
+.door-message {
+  display: none;
+
+  background: white;
+  padding: 12px 20px;
+  border-radius: 18px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  position: absolute;
+}
+.choice-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  width: 180px;
+}
+
+.choice-buttons button {
+  padding: 12px;
+}
+.name-input {
+  display: none;
+
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.name-input input {
+  width: 180px;
+  padding: 12px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 15px;
+  text-align: center;
+}
+
+.name-input button {
+  padding: 10px 25px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: white;
+
+  cursor: pointer;
+}
+.wrong-name-screen {
+  display: none;
+
+  width: 100%;
+  height: 100vh;
+
+  justify-content: center;
+  align-items: center;
+
+  background: #f5efe5;
+}
+
+.wrong-name-screen img {
+  width: 90%;
+  max-width: 500px;
+
+  border-radius: 15px;
+}
+.peek-face {
+  display: none;
+  position: absolute;
+  font-size: 100px;
+}
+.wrong-name-screen {
+  flex-direction: column;
+  gap: 20px;
+}
+
+#wrongNameExitButton {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 15px;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+.open-door-button {
+  display: none;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 15px;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* 문 열리는 애니메이션 */
+.door.opening {
+  transform-origin: right center;
+  animation: doorOpen 1.5s ease-in forwards;
+}
+
+@keyframes doorOpen {
+  0% {
+    transform: perspective(600px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: perspective(600px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+/* 문이 열린 뒤의 공간 */
+body.door-opened {
+  background: #f9dfe5;
+  transition: background 1.5s ease;
+}
+
+.door-screen.door-opened {
+  background: #f9dfe5;
+  transition: background 1.5s ease;
+}
+/* ====================
+   방 화면
+==================== */
+
+.room-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #f9dfe5;
+
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.room-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 투명한 클릭 영역 */
+
+.room-hotspot {
+  position: absolute;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* 편지지 */
+.letter-hotspot {
+  width: 18%;
+  height: 8%;
+  left: 20%;
+  top: 49%;
+}
+
+/* 액자 */
+.frame-hotspot {
+  width: 55%;
+  height: 20%;
+  left: 23%;
+  top: 17%;
+}
+
+/* 침대 */
+.bed-hotspot {
+  width: 38%;
+  height: 30%;
+  right: 5%;
+  top: 48%;
+}
+
+/* 노트북 */
+.laptop-hotspot {
+  width: 25%;
+  height: 15%;
+  left: 38%;
+  bottom: 18%;
+}
+
+/* 스피커 */
+.speaker-hotspot {
+  width: 15%;
+  height: 18%;
+  left: 5%;
+  bottom: 18%;
+}
+/* ====================
+   침대 클릭 화면
+==================== */
+
+.bed-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: #f9dfe5;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+}
+
+.bed-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sleeping-image {
+  width: 75vw;
+  max-width: 500px;
+  border-radius: 20px;
+}
+
+.sleeping-bubble {
+  position: absolute;
+
+  top: -60px;
+  right: -20px;
+
+  background: white;
+  padding: 15px 22px;
+
+  border-radius: 20px;
+
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sleeping-bubble::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -10px;
+  left: 30px;
+
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid white;
+}
